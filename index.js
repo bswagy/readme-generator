@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./generateMarkdown');
+const generateMarkdown = require('./generateMarkdown.js');
 
 // function to prompt user for input
 const promptUser = () => {
@@ -45,7 +45,7 @@ message: 'Enter test instructions:'
 type: 'list',
 name: 'license',
 message: 'Choose a license for your application:',
-choices: ['MIT,'Apache', 'GPL', 'None']
+choices: ['MIT','Apache', 'GPL', 'None']
 },
 {
 type: 'input',
@@ -59,6 +59,29 @@ message: 'Enter your email address:'
 }
 ]);
 };
+
+// function to write README file
+const writeToFile = (fileName, data) => {
+fs.writeFile(fileName, data, err => {
+if (err) {
+    console.error('Error writing README file:', err);
+} else { 
+    console.log('README file generated successfully!');
+}
+});
+};
+
+//function to initialize app
+ const init = () => {
+promptUser()
+.then(answers => {
+const readmeContent = generateMarkdown(answers);
+writeToFile('README.md' , readmeContent);
+})
+.catch(err => console.error(err));
+ };
+
+ init();
 
 
 
