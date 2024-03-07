@@ -4,6 +4,7 @@
 ## Description 
  quick readme generator for projects 
  https://drive.google.com/file/d/1LJhgJRXjKn3MuVwnx-x5ZhrHDmhFwKQS/view
+ ![Alt text](<utils/Screenshot 2024-03-07 at 2.12.28 PM.png>)
 ## Table of Contents
 - [Installation](#installation) 
 - [Usage](#usage) 
